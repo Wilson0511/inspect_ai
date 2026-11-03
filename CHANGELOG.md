@@ -1,5 +1,38 @@
 # Changelog
 
+## [0.3.288](https://github.com/UKGovernmentBEIS/inspect_ai/compare/0.3.287...0.3.288) (2026-11-03)
+
+
+### Features
+
+* a runtime can keep a react() or deepagent() loop going after it answers ([#6212](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6212)) ([cea079d](https://github.com/UKGovernmentBEIS/inspect_ai/commit/cea079d229b82a5c3b784abcb32d3e26a3391738))
+* experimental transcript events for agent communication and agent swarm evidence ([#6164](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6164)) ([cba2b16](https://github.com/UKGovernmentBEIS/inspect_ai/commit/cba2b16fb411863ab381bc856567f635d0a29107))
+* run each agent's sandbox tools as its own user ([#6190](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6190)) ([f59945e](https://github.com/UKGovernmentBEIS/inspect_ai/commit/f59945e549850a88825ba0368b14ca3d9a699b32))
+
+
+### Bug Fixes
+
+* `inspect view` no longer terminates an unrelated process that reused a crashed server's pid ([#6247](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6247)) ([689a92e](https://github.com/UKGovernmentBEIS/inspect_ai/commit/689a92e1ed94e35ed75a750808686d928d4f2f94))
+* a sample limit reached by overlapping bridged generations ends the sample after an inner limit ([#6263](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6263)) ([642ee4b](https://github.com/UKGovernmentBEIS/inspect_ai/commit/642ee4bd00bf24a2b1f77e7237cebb75a8ad5ee2))
+* **agent-bridge:** Gemini tool calls through the chat completions bridge keep their thought signatures ([#5892](https://github.com/UKGovernmentBEIS/inspect_ai/issues/5892)) ([00d9882](https://github.com/UKGovernmentBEIS/inspect_ai/commit/00d9882b6c1081071100ab448b4bfaa4606b1afa))
+* avoid tenacity 9.2.1 'initial' DeprecationWarning in retry backoff ([#6196](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6196)) ([9498a0a](https://github.com/UKGovernmentBEIS/inspect_ai/commit/9498a0aa426c24e9e02e05b6dab30b8103f21129)), closes [#5989](https://github.com/UKGovernmentBEIS/inspect_ai/issues/5989)
+* batch result send failure no longer crashes the eval ([#6233](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6233)) ([ae3af35](https://github.com/UKGovernmentBEIS/inspect_ai/commit/ae3af3549d20a2aa0244ec169529db5cfee0b113))
+* closing the task cancel dialog no longer clears a pending drain or cancel ([#6250](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6250)) ([242da5f](https://github.com/UKGovernmentBEIS/inspect_ai/commit/242da5feb0dd14ef1d3b9fa110719502bbf5b9eb))
+* Docker exec with a timeout returns a command's own exit 124 instead of raising TimeoutError ([#6183](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6183)) ([706b4c5](https://github.com/UKGovernmentBEIS/inspect_ai/commit/706b4c5d6a3af83150ae3fc66ddf84b6bc37f50f))
+* don't score an earlier grade when the final verdict line can't be parsed ([#6198](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6198)) ([c7fa0d2](https://github.com/UKGovernmentBEIS/inspect_ai/commit/c7fa0d25cdd5c6477cc25e7c5cc26eafab2296b6))
+* **google:** batch requests with thought signatures or inline media serialize to JSON ([#6242](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6242)) ([e08662f](https://github.com/UKGovernmentBEIS/inspect_ai/commit/e08662fde87fb18cb207902156165e6abad803a5)), closes [#6214](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6214)
+* **google:** failed, cancelled or expired batch jobs no longer hang their samples ([#6234](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6234)) ([4499e04](https://github.com/UKGovernmentBEIS/inspect_ai/commit/4499e044d5e24e37759b8baa0c0a581e6e2b8f33))
+* **google:** streamed responses drop signed generated images ([#6241](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6241)) ([6ba3296](https://github.com/UKGovernmentBEIS/inspect_ai/commit/6ba32968711b1a7437ad6e9e71064a33b2de49a8))
+* human approval cancelled as it is answered no longer fails with KeyError ([#6266](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6266)) ([87f5016](https://github.com/UKGovernmentBEIS/inspect_ai/commit/87f50167f72d031b382eb2fc1edb3a6afeb340ce))
+* old logs read back with different message ids and working_start on every read ([#6103](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6103)) ([75692ec](https://github.com/UKGovernmentBEIS/inspect_ai/commit/75692ec4d555ff8d481b2cc44c76fa63d0e2801f))
+* sample event stream ownership and cancellation cleanup ([#5737](https://github.com/UKGovernmentBEIS/inspect_ai/issues/5737)) ([cb9eae3](https://github.com/UKGovernmentBEIS/inspect_ai/commit/cb9eae36635a2ea2a3d6a0459b5667c712e6ebd2))
+* throttled display updates stop firing after an error or a cancelled eval ([#6248](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6248)) ([a156049](https://github.com/UKGovernmentBEIS/inspect_ai/commit/a156049422bb4319aaf86c0b0c7f678338c6b26e))
+
+
+### Performance Improvements
+
+* share logged model-call messages across calls ([#6047](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6047)) ([c3360ce](https://github.com/UKGovernmentBEIS/inspect_ai/commit/c3360cea51762b3b2411f0d471da33de418724ba))
+
 ## [0.3.287](https://github.com/UKGovernmentBEIS/inspect_ai/compare/0.3.286...0.3.287) (2026-10-31)
 
 
